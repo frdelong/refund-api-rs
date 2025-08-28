@@ -6,3 +6,5 @@ const routes = Router()
 
 // Rotas públicas.
 routes.use("/users", usersRoutes)
+
+export { routes }
