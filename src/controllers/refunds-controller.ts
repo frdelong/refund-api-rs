@@ -24,7 +24,7 @@ class RefundsController {
 
     const { name, category, amount, filename } = bodySchema.parse(request.body)
 
-    if(!request.user?.id){
+    if (!request.user?.id) {
       throw new AppError("Unauthorized", 401)
     }
 
@@ -34,11 +34,15 @@ class RefundsController {
         category,
         amount,
         filename,
-        userId: request.user.id
-      }
+        userId: request.user.id,
+      },
     })
 
     response.status(201).json(refund)
+  }
+
+  async index(request: Request, response: Response) {
+    response.json({ message: "ok" })
   }
 }
 
