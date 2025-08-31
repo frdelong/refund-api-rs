@@ -6,7 +6,7 @@ const CategoriesEnum = z.enum([
   "others",
   "services",
   "transport",
-  "accommodation"
+  "accommodation",
 ])
 class RefundsController {
   async create(request: Request, response: Response) {
@@ -17,8 +17,10 @@ class RefundsController {
         .min(1, { message: "Informe o nome da solicitação" }),
       category: CategoriesEnum,
       amount: z.number().positive({ message: "O valor precisa ser positivo" }),
-      filename: z.string().min(20)
+      filename: z.string().min(20),
     })
+
+    const { name, category, amount, filename } = bodySchema.parse(request.body)
 
     response.json({ message: "ok" })
   }
