@@ -1,6 +1,8 @@
+.DS_Store
 .vscode
 node_modules
 # Keep environment variables out of version control
 .env
+tmp
 
 prisma
